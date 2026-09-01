@@ -33,7 +33,7 @@ jobs:
         run: npm install
 
       - name: Build presentation
-        run: npx vite build --config vite.assets.config.js --base=./
+        run: npm run build -- --base=./
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
