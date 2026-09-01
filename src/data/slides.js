@@ -1,12 +1,12 @@
 // The original photographs already live at the repository root on main.
 // Import those tracked originals so Vite can fingerprint them without duplicate source files.
-import hero from '../../IMG_7833 2.jpg?url';
-import detail from '../../IMG_7845.jpg?url';
-import closing from '../../IMG_7858.jpg?url';
-import spring from '../../56B7E0FA-3AC2-45F3-9668-3358EA4EBE9E 2.PNG?url';
-import christmas from '../../Ceramic_Chrristmas.PNG?url';
-import summer from '../../5C83B43E-E2E4-4DDB-9D1B-68CE29F3FE53.PNG?url';
-import autumn from '../../8A5611F3-3923-48A4-941F-681582528986 2.PNG?url';
+import hero from '../../IMG_7833 2.jpg';
+import detail from '../../IMG_7845.jpg';
+import closing from '../../IMG_7858.jpg';
+import spring from '../../56B7E0FA-3AC2-45F3-9668-3358EA4EBE9E 2.PNG';
+import christmas from '../../Ceramic_Chrristmas.PNG';
+import summer from '../../5C83B43E-E2E4-4DDB-9D1B-68CE29F3FE53.PNG';
+import autumn from '../../8A5611F3-3923-48A4-941F-681582528986 2.PNG';
 
 export const images = {
   hero,
