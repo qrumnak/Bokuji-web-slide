@@ -6,6 +6,6 @@ export default mergeConfig(
   defineConfig({
     // The supplied originals include uppercase extensions. Register those files as
     // static assets so Vite never parses their binary data as JavaScript.
-    assetsInclude: ['**/*.PNG', '**/*.JPG', '**/*.JPEG'],
+    assetsInclude: ['**/*.PNG', '**/*.JPG'],
   }),
 );
