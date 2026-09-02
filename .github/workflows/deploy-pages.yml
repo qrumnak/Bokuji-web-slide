@@ -28,15 +28,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build presentation
-        run: npm run build -- --base=./
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        run: npm run build
 
       - name: Upload presentation
         uses: actions/upload-pages-artifact@v3
