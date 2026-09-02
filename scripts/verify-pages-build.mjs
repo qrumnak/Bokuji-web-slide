@@ -31,8 +31,8 @@ function localAssetReferences(source) {
 }
 
 const indexHtml = await readFile(indexPath, 'utf8');
-if (indexHtml.includes('/src/')) {
-  throw new Error('dist/index.html still references a source module instead of a built bundle.');
+if (/src\/main\.jsx(?:[?"'])/.test(indexHtml) || indexHtml.includes('/src/')) {
+  throw new Error('dist/index.html still references /src/main.jsx instead of a built bundle.');
 }
 
 const entryReferences = [...indexHtml.matchAll(/(?:src|href)=["']([^"']+)["']/g)]
@@ -41,6 +41,11 @@ const entryReferences = [...indexHtml.matchAll(/(?:src|href)=["']([^"']+)["']/g)
 
 if (!entryReferences.length || entryReferences.some((reference) => !reference.startsWith(`${projectBase}assets/`))) {
   throw new Error(`Every generated entry must use the GitHub Pages base ${projectBase}`);
+}
+
+const javascriptEntries = entryReferences.filter((reference) => reference.endsWith('.js'));
+if (javascriptEntries.length !== 1 || !/\/assets\/[^/]+-[A-Za-z0-9_-]+\.js$/.test(javascriptEntries[0])) {
+  throw new Error('dist/index.html must reference exactly one hashed production JavaScript bundle.');
 }
 
 const outputFiles = await filesBelow(distDirectory);
