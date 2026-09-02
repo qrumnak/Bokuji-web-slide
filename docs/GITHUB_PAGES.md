@@ -14,7 +14,7 @@
 公開URLは通常、次の形式です。
 
 ```text
-https://<GitHubユーザー名>.github.io/<リポジトリ名>/
+https://qrumnak.github.io/Bokuji-web-slide/
 ```
 
 初回設定後は、`main`ブランチが更新されるたびに公開ページも自動更新されます。Actions画面の **Run workflow** から手動で再公開することもできます。
