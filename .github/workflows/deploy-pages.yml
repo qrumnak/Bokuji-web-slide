@@ -51,6 +51,12 @@ jobs:
       - name: Verify project-site asset paths
         run: npm run verify:pages
 
+      - name: Build presentation
+        run: npm run build
+
+      - name: Verify project-site asset paths
+        run: npm run verify:pages
+
       - name: Upload presentation
         uses: actions/upload-pages-artifact@v3
         with:
