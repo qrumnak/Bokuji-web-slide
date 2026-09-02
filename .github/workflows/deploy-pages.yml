@@ -35,6 +35,27 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Use the workflow artifact as the Pages source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # A /src/main.jsx response can only come from branch-based root publishing.
+        # Keep this idempotent so an old Pages setting cannot bypass the dist artifact.
+        run: gh api --method PUT "repos/${GITHUB_REPOSITORY}/pages" -f build_type=workflow
+
+      - name: Build presentation
+        run: npm run build
+
+      - name: Verify project-site asset paths
+        run: npm run verify:pages
+
+      - name: Build presentation
+        run: npm run build
+
+      - name: Verify project-site asset paths
+        run: npm run verify:pages
 
       - name: Build presentation
         run: npm run build
