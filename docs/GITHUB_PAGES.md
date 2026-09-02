@@ -18,3 +18,5 @@ https://qrumnak.github.io/Bokuji-web-slide/
 ```
 
 初回設定後は、`main`ブランチが更新されるたびに公開ページも自動更新されます。Actions画面の **Run workflow** から手動で再公開することもできます。
+
+公開対象はリポジトリ直下ではなく、GitHub ActionsがViteで生成した`dist`です。ワークフローはPagesの公開元をGitHub Actionsに設定し、アップロード前に公開用`index.html`が`/src/main.jsx`ではなく`/Bokuji-web-slide/assets/`配下のハッシュ付きJavaScriptを参照していることを検証します。
